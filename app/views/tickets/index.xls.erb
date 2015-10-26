@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Incident</Data></Cell>
+        <Cell><Data ss:Type="String">Last Update Sent date</Data></Cell>
+        <Cell><Data ss:Type="String">Engineer</Data></Cell>
+        <Cell><Data ss:Type="String">Application</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+      </Row>
+    <% @tickets.each do |ticket| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= ticket.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ticket.incident %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ticket.dou %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Engineer.find(ticket.engineer_id).name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Application.find(ticket.application_id).name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Status.find(ticket.status_id).name%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

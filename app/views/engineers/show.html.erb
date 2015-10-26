@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<%= @engineer.name %>
+<%= link_to 'Edit', edit_engineer_path(@engineer) %> |
+<%= link_to 'Back', engineers_path %>
+
+
+<h1>Listing Tickets</h1>
+
+<table border="1" align="center">
+  <thead>
+    <tr>
+      <th>Incident</th>
+      <th>Last update sent on</th>
+      <th>Engineer</th>
+      <th>Application</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @engineer.tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.incident %> </td>
+        <td><%= ticket.dou %> </td>
+        <td><%= get_engineer_name(ticket.engineer_id)%></td>
+        <td><%= get_application_name(ticket.application_id)%></td>
+        <td><%= get_status_name(ticket.status_id)%></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TicketManagement</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
+</head>
+<body>
+<div id="container">
+      <%= render 'layouts/header' %>
+      <br><br>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+</body>
+
+<style>
+body {
+    background-color: linen;
+    text-align: center;
+    align: center;
+}
+table {
+	align: center;
+}
+
+
+</style>
+
+</html>

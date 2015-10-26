@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  Download:
+
+  <%= link_to "Excel", engineers_path(format: "xls") %>
+</p>
+
+<h1>Listing Engineers</h1>
+
+<table border="1" align="center">
+  <thead>
+    <tr>
+      <th>Engineer</th>
+      <th>Tickets</th>
+      <% @statuses.each do |status| %>
+         <th><%= status.name%></th>
+      <% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @engineers.each do |engineer| %>
+      <tr>
+        <td><%= engineer.name %></td>
+        <td><%= get_engineer_tickets_count(engineer) %></td>
+      <% @statuses.each do |status| %>
+         <td><%= get_engineer_status_tickets_count(status,engineer) %></td>
+      <% end %>
+        <td><%= link_to 'Show', engineer %></td>
+        <td><%= link_to 'Edit', edit_engineer_path(engineer) %></td>
+        <td><%= link_to 'Destroy', engineer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Engineer', new_engineer_path %>

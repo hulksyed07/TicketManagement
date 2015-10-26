@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Engineer</Data></Cell>
+        <Cell><Data ss:Type="String">Tickets</Data></Cell>
+       <% @statuses.each do |status| %>
+         <Cell><Data ss:Type="String"><%= status.name%></Data></Cell>
+       <% end %>
+      </Row>
+    <% @engineers.each do |engineer| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= engineer.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= engineer.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= get_engineer_tickets_count(engineer) %></Data></Cell>
+        <% @statuses.each do |status| %>
+        <Cell><Data ss:Type="String"><%= get_engineer_status_tickets_count(status,engineer) %> </Data></Cell>
+        <% end %>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

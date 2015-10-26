@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  Download:
+
+  <%= link_to "Excel", applications_path(format: "xls") %>
+</p>
+
+<h1>Listing Applications</h1>
+
+<table border="1" align="center">
+  <thead>
+    <tr>
+      <th>Application</th>
+      <th>Technology</th>
+      <th>Tickets</th>
+      <% @statuses.each do |status| %>
+         <th><%= status.name%></th>
+      <% end %>      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.name %></td>
+        <td><%= get_technology_name(application.technology_id)%></td>
+         <td><%= get_application_tickets_count(application) %></td>
+      <% @statuses.each do |status| %>
+         <td><%= get_application_status_tickets_count(status,application) %></td>
+      <% end %>        
+        <td><%= link_to 'Show', application %></td>
+        <td><%= link_to 'Edit', edit_application_path(application) %></td>
+        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application', new_application_path %>
+
+

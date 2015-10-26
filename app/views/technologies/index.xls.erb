@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Technology</Data></Cell>
+        <Cell><Data ss:Type="String">Applications</Data></Cell>
+       <% @statuses.each do |status| %>
+         <Cell><Data ss:Type="String"><%= status.name%></Data></Cell>
+       <% end %>
+      </Row>
+    <% @technologies.each do |technology| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= technology.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= technology.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= get_technology_applications_count(technology) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= get_technology_tickets_count(technology) %></Data></Cell>
+        <% @statuses.each do |status| %>
+        <Cell><Data ss:Type="String"><%= get_technology_status_tickets_count(status,technology) %> </Data></Cell>
+        <% end %>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

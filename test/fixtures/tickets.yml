@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  incident: MyString
+  status_id: 1
+  application_id: 1
+  engineer_id: 1
+  dou: 2015-09-16
+
+two:
+  incident: MyString
+  status_id: 1
+  application_id: 1
+  engineer_id: 1
+  dou: 2015-09-16
