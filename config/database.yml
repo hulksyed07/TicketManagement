@@ -63,7 +63,12 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: TicketManagement_production
-  username: TicketManagement
-  password: <%= ENV['TICKETMANAGEMENT_DATABASE_PASSWORD'] %>
+  # <<: *default
+  # database: TicketManagement_production
+  # username: TicketManagement
+  # password: <%= ENV['TICKETMANAGEMENT_DATABASE_PASSWORD'] %>
+
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
