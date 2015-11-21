@@ -14,46 +14,46 @@
 ActiveRecord::Schema.define(version: 20150916105733) do
 
   create_table "applications", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "technology_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name"
+    t.integer  "technology_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "descriptions", force: :cascade do |t|
-    t.integer  "ticket_id",  limit: 4
-    t.text     "details",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "ticket_id"
+    t.text     "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "engineers", force: :cascade do |t|
-    t.string   "fmno",       limit: 255
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "fmno"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "technologies", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.string   "incident",       limit: 255
-    t.integer  "status_id",      limit: 4
-    t.integer  "application_id", limit: 4
-    t.integer  "engineer_id",    limit: 4
+    t.string   "incident"
+    t.integer  "status_id"
+    t.integer  "application_id"
+    t.integer  "engineer_id"
     t.date     "dou"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
