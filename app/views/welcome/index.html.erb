@@ -1,11 +1,2 @@
+<%= render 'menu'%>
 
-
-<TABLE border='1' align="center">
-   <tr>
-		<td><%=link_to "Tickets" ,tickets_path%>(<%= get_tickets_count %>)</td>
-		<td><%=link_to "Applications", applications_path%>(<%= get_applications_count %>)</td>
-		<td><%=link_to "Engineers", engineers_path%>(<%= get_engineers_count %>)</td>
-		<td><%=link_to "Technologies" ,technologies_path%>(<%= get_technologies_count %>)</td>
-		<td><%=link_to "Statuses" ,statuses_path%>(<%= get_statuses_count %>)</td>
-   </tr>
-</TABLE>

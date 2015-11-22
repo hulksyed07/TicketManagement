@@ -1,0 +1,9 @@
+<div id="menu" align= "center">
+	<ul>
+		<li><%=link_to "Tickets" ,tickets_path%>(<%= get_tickets_count %>)</li>
+		<li><%=link_to "Applications", applications_path%>(<%= get_applications_count %>)</li>
+		<li><%=link_to "Engineers", engineers_path%>(<%= get_engineers_count %>)</li>
+		<li><%=link_to "Technologies" ,technologies_path%>(<%= get_technologies_count %>)</li>
+		<li><%=link_to "Statuses" ,statuses_path%>(<%= get_statuses_count %>)</li>
+	</ul>
+</div>

@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background-image: url(main_background2.jpg);
+	text-align: center;
+}
+
+ header {
+     background-image: url(background_12.jpg);
+     /*background-color: red;*/
+     text-align: center;
+     height:70px;
+     width:100%;
+     margin:0px auto;
+     
+}
+
+footer {  
+   background-image: url(background_12.jpg);
+   text-align: center;
+   position: relative;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+
+}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+} 
