@@ -4,7 +4,7 @@ class TechnologiesController < ApplicationController
   # GET /technologies
   # GET /technologies.json
   def index
-    @technologies = Technology.all
+    @technologies = Technology.paginate(:page => params[:page], :per_page => 10)
     @statuses=Status.all.sort_by(&:name)
     respond_to do |format|
       format.html
